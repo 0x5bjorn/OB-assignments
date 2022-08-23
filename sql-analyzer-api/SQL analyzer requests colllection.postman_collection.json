@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "7f86adf5-48ec-433a-9bff-50a4dae35a3f",
+		"name": "SQL analyzer requests colllection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21213725"
+	},
+	"item": [
+		{
+			"name": "POST sql expression (select)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST sql expression (update)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST sql expression (insert)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
