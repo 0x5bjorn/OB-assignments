@@ -14,6 +14,8 @@ Versions: Java(11), JDK(11), Spring(2.7.3), Maven(3.8.1)
 
 Отключение и удаление контейнера RabbitMQ: ``` docker-compose down ``` 
 
+Чтобы заменить базу данных на коллекцию объектов(и наоборот), в проекте dml в файле ``` application.properties ``` ([ссылка](https://github.com/umarbaev-S/OB-assignments/blob/main/interproc-communication/interproc-communication-dml/src/main/resources/application.properties)) перепишите значение ``` ipc.dml.storage ``` на ``` coll/db ``` соответственно
+
 ## ENG
 
 ### Points that were skipped:
