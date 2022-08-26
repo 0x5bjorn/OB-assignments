@@ -90,8 +90,6 @@ public class BankMarketplaceConsoleApplication implements CommandLineRunner {
 		currentClient.setCard(card);
 		PaymentProcessingStrategy processingStrategy = currentClient.isRetired() ? new IPCProcessing() : new Way4Processing();
 
-		System.out.format(OUTPUT_TAG + "Payment type: %s, Payment processing: %s\n", currentClient.getCard());
-
 		/* Process order */
 		System.out.format(OUTPUT_TAG + "Before checkout balance: %.2f\n", currentClient.getCard().getAmount());
 		order.processOrder(card, processingStrategy);
