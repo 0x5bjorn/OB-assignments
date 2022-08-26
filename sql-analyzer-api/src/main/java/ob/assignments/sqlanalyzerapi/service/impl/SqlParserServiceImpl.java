@@ -8,11 +8,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.HashMap;
 
+/**
+ * SqlExpression service implementation
+ */
 @Service
 public class SqlParserServiceImpl implements SqlParserService {
 
     final List<String> aggregateFuncs = Arrays.asList("avg(", "min(", "max(", "sum(", "count(");
 
+    /**
+     * Parse sql expression to extract columns
+     * @param sqlExpression SQL expression
+     * @return Map of columns
+     */
     @Override
     public HashMap<String, String> parseSqlExpression(String sqlExpression) {
         HashMap<String, String> result = new HashMap<>();
@@ -39,6 +47,11 @@ public class SqlParserServiceImpl implements SqlParserService {
         return result;
     }
 
+    /**
+     * Parse simple SELECT expression
+     * @param sqlExpression SELECT sql expression
+     * @param result Result map of columns
+     */
     private void parseSelectExpression(String sqlExpression, HashMap<String, String> result) {
         if (sqlExpression.contains("*")) return;
 
@@ -73,6 +86,11 @@ public class SqlParserServiceImpl implements SqlParserService {
         }
     }
 
+    /**
+     * Parse simple UPDATE expression
+     * @param sqlExpression UPDATE sql expression
+     * @param result Result map of columns
+     */
     private void parseUpdateExpression(String sqlExpression, HashMap<String, String> result) {
         int setIndex = sqlExpression.toLowerCase().indexOf("set");
         int whereIndex = sqlExpression.toLowerCase().contains("where") ? sqlExpression.toLowerCase().indexOf("where") : sqlExpression.length();
@@ -87,6 +105,11 @@ public class SqlParserServiceImpl implements SqlParserService {
         }
     }
 
+    /**
+     * Parse simple INSERT expression
+     * @param sqlExpression INSERT sql expression
+     * @param result Result map of columns
+     */
     private void parseInsertExpression(String sqlExpression, HashMap<String, String> result) {
         int valuesIndex = sqlExpression.toLowerCase().indexOf("values");
         String columnString = sqlExpression.substring(0, valuesIndex);

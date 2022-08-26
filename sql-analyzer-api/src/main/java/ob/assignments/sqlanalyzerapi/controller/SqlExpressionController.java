@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
+/**
+ * SqlExpression controller
+ */
 @RestController
 public class SqlExpressionController implements SqlExpressionSwaggerApi {
 
@@ -20,22 +23,11 @@ public class SqlExpressionController implements SqlExpressionSwaggerApi {
         this.sqlParserService = sqlParserService;
     }
 
-    private final AtomicLong counter = new AtomicLong();
-
     @Override
     @PostMapping(value = "/sqlcolumns", consumes = "text/plain")
     public String createSqlColumnsMap(@RequestBody String sqlExpression) {
 
-//        return new SqlColumns(counter.incrementAndGet(), sqlParserService.parseSqlExpression(sqlExpression));
-
         return sqlParserService.parseSqlExpression(sqlExpression) != null ?
                 sqlParserService.parseSqlExpression(sqlExpression).toString() : "Unknown query\n";
-
-//        HashMap<String, String> map = sqlParserService.parseSqlExpression(sqlExpression);
-//        return map
-//                .keySet()
-//                .stream()
-//                .map(key -> "<" + key + ", " + map.get(key) + ">")
-//                .collect(Collectors.joining(", ", "[", "]"));
     }
 }
