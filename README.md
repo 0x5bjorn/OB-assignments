@@ -1,7 +1,7 @@
 # OB-assignments
 Optima bank assignments
 
-Versions: Java(11), JDK(11), Spring(2.7.3)
+Versions: Java(11), JDK(11), Spring(2.7.3), Maven(3.8.1)
 
 ## Пункты которые были пропущены и не реализованы:
 - Логирование
